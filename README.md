@@ -6,6 +6,10 @@ Here is the App Looks like
 
 ![alt text](image.png)
 
+![alt text](image-1.png)
+
+And here are the Test Cases Result
+![alt text](image-2.png)
 
 ## Available Scripts
 

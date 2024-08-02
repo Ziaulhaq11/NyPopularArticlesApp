@@ -32,13 +32,13 @@ const Article = () => {
         <p>Keywords of this article are:-</p>
         <div className="keywords-container">
           {article.des_facet.map((key) => (
-            <b>{key},</b>
+            <b  key={key}>{key},</b>
           ))}
         </div>
         <p>Description of Fascets are:-</p>
         <div className="keywords-container">
           {keywords.map((key) => (
-            <b>{key},</b>
+            <b key={key}>{key},</b>
           ))}
         </div>
         <p>

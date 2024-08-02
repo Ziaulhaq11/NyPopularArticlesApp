@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Articles from "./Articles";
-import {mockData} from '../../data'
+import {mockData} from '../../mockData/data'
 
 beforeEach(() => {
   jest.spyOn(global, 'fetch').mockResolvedValue({
