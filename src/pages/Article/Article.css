@@ -1,12 +1,13 @@
+
 .article-container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
-    flex-wrap: wrap;
-    align-items: center;
 }
 
 .article-container img {
-    width: 440px;
+    width: 600px;
     max-width: 100%;
 }
 
