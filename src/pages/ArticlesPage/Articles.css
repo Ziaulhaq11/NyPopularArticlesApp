@@ -48,6 +48,10 @@
   margin: 5px;
 }
 
+.article .content {
+  flex : 1;
+}
+
 .article img {
   width: 440px;
   max-width: 100%;
@@ -56,6 +60,7 @@
 
 .article .details {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
