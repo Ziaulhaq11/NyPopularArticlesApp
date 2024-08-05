@@ -5,12 +5,20 @@ const Article = () => {
   const { state: article }: { state: IArticle } = useLocation();
   const keywords = article.adx_keywords.replaceAll(";", ', ');
   return (
-    <div className="article-description">
-      <div className="header">
+    <div className="article-container">
+      <div className="article-header">
         <h3>{article.title}</h3>
-        {article.media.length && (
-          <img src={article.media[0]["media-metadata"][2].url} alt="articleImage" />
-        )}
+        {article.media.length ? (
+              <img
+                src={article.media[0]["media-metadata"][2].url}
+                alt="articleImage"
+              />
+            ) : (
+              <img
+                src="https://placehold.co/600x400/EEE/31343C"
+                alt="articleImage"
+              />
+            )}
       </div>
       <div className="details">
         <h4>Description : {article.abstract}</h4>
