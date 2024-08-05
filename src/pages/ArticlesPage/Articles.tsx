@@ -1,26 +1,20 @@
-import { useEffect, useState } from "react";
 import "./Articles.css";
 import ArticlesRenderer from "../../components/ArticlesRenderer";
 import { IArticle } from "../../core/types";
+import { useQuery } from "react-query";
 const url =
   "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=KrZBodWefz6sgBGFH9yCCY5VQVSIREga";
 
 const Articles = () => {
-  const [articles, setArticles] = useState<IArticle[]>();
-  const [loading, setLoading] = useState(true);
   const fetchArticles = async () => {
-    setLoading(true);
-    await fetch(url)
-      .then((res) => res.json())
-      .then((articles) => setArticles(articles.results))
-      .catch((err) => console.log(err));
-    setLoading(false);
+    const response = await fetch(url);
+    const data = await response.json();
+    return data?.results as IArticle[];
   };
-  useEffect(() => {
-    fetchArticles();
-  }, []);
 
-  if (loading) {
+  const {isLoading, data:articles} = useQuery("articlesData", fetchArticles);
+  console.log(articles)
+  if (isLoading) {
     return <div className="loader"></div>;
   } else if (!articles || articles.length === 0) {
     return <h1>No Articles Found</h1>;

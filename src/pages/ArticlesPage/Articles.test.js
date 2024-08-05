@@ -2,11 +2,13 @@ import { render, screen } from "@testing-library/react";
 import Articles from "./Articles";
 import {mockData} from '../../mockData/data'
 
-beforeEach(() => {
-  jest.spyOn(global, 'fetch').mockResolvedValue({
-    json: jest.fn().mockResolvedValue(mockData)
+jest.mock("react-query", () => ({
+  ...jest.requireActual("react-query"),
+  useQuery : () => ({
+    data : mockData.results,
+    isLoading : false
   })
-});
+}))
 
 afterEach(() => {
   jest.restoreAllMocks();

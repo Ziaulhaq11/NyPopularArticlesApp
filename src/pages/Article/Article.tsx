@@ -3,7 +3,7 @@ import "./Article.css";
 import { IArticle } from "../../core/types";
 const Article = () => {
   const { state: article }: { state: IArticle } = useLocation();
-  const keywords = article.adx_keywords.split(";");
+  const keywords = article.adx_keywords.replaceAll(";", ', ');
   return (
     <div className="article-description">
       <div className="header">
@@ -36,11 +36,7 @@ const Article = () => {
           ))}
         </div>
         <p>Description of Fascets are:-</p>
-        <div className="keywords-container">
-          {keywords.map((key) => (
-            <b key={key}>{key},</b>
-          ))}
-        </div>
+        <b>{keywords}</b>
         <p>
           <b>{article.byline}</b>
         </p>
