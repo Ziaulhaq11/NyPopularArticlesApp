@@ -5,7 +5,7 @@ This App Contains the Most Popular Articles of NY Times. And In the Web Page use
 Here is the App Looks like
 
 ![alt text](image.png)
-![alt text](image-2.png)
+![alt text](image-1.png)
 
 And here are the Test Cases Result
 ![alt text](image-2.png)
