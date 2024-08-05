@@ -13,7 +13,6 @@ const Articles = () => {
   };
 
   const {isLoading, data:articles} = useQuery("articlesData", fetchArticles);
-  console.log(articles)
   if (isLoading) {
     return <div className="loader"></div>;
   } else if (!articles || articles.length === 0) {
