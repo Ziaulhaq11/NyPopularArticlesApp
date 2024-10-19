@@ -2,20 +2,18 @@ import { useLocation } from "react-router-dom";
 import "./Article.css";
 import { IArticle } from "../../core/types";
 const Article = () => {
-  const { state: article }: { state: IArticle } = useLocation();
+  const article: IArticle = useLocation().state;
   const keywords = article.adx_keywords.replaceAll(";", ", ");
+  const imageUrl = article.media.length
+    ? article.media[0]["media-metadata"][
+        article.media[0]["media-metadata"].length - 1
+      ].url
+    : "https://placehold.co/600x400/EEE/31343C";
   return (
     <div className="article-container">
       <h1>{article.title}</h1>
       <h3>Description : {article.abstract}</h3>
-      {article.media.length ? (
-        <img
-          src={article.media[0]["media-metadata"][2].url}
-          alt="articleImage"
-        />
-      ) : (
-        <img src="https://placehold.co/600x400/EEE/31343C" alt="articleImage" />
-      )}
+      <img src={imageUrl} alt="articleImage" loading="lazy" />
       <p>Keywords of this article are:-</p>
       <div className="keywords-container">
         {article.des_facet.map((key) => (
